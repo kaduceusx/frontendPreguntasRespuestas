@@ -2,6 +2,7 @@
 p{
    font-family: 'Rowdies', cursive;
    font-size: 2.3em;
+   color: #fffffe;
 }
 
 .container{
@@ -9,4 +10,24 @@ p{
    justify-content: center;
    align-items: center;
    min-height: 100vh;
+}
+
+hr {
+   border-width: 3px;
+   max-width: 65px;
+   border-color: orange;
+}
+
+.btn-xl{
+   background-color: orange;
+   border-color: orange;
+   margin: 10px;
+   padding: 1rem 2rem;
+   border-radius: 100px;
+}
+
+.btn-xl:hover{
+   background-color: orangered;
+   border-radius: orangered;
+   border-width: 4px;
 }

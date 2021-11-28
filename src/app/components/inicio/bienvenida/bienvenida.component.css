@@ -27,7 +27,7 @@ hr {
 }
 
 .btn-xl:hover{
-   background-color: orangered;
-   border-radius: orangered;
+   /* background-color: rgb(255, 102, 0);
+   border-radius: orangered; */
    border-width: 4px;
 }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from '../../../services/usuario.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -9,8 +13,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   register!: FormGroup
+  loading = false;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, 
+              private usuarioServices: UsuarioService,
+              private router:Router,
+              private toastr: ToastrService) { 
     this.register = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(4)] ],
@@ -23,6 +31,24 @@ export class RegisterComponent implements OnInit {
 
   registrarUsuario():void {
     console.log(this.register);
+    const usuario: Usuario = {
+      nombreUsuario: this.register.value.usuario,
+      password: this.register.value.password
+    };
+
+    this.loading = true;
+
+    this.usuarioServices.saveUser(usuario).subscribe(data =>{
+      console.log(data);
+      this.toastr.success(`El usuario ${usuario.nombreUsuario} ha sido registrado con exito`, 'Usuario Registrado');
+      this.router.navigate(['/inicio/login']);
+      this.loading = false;
+    }, error =>{
+      this.loading = false;
+      console.log(error);
+      this.register.reset();
+      this.toastr.error(error.error.message, 'Error');
+    });
   }
 
   checkPassword(group: FormGroup):any {

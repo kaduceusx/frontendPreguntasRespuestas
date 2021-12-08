@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../services/login.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   login!: FormGroup;
   loading:boolean = false;
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService, private router: Router) { 
+  constructor(private fb: FormBuilder, private toastr: ToastrService, private router: Router, private loginService: LoginService) { 
     this.login = this.fb.group({
       usuario : ['', Validators.required],
       password : ['', Validators.required]
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   log():void {
+
     console.log(this.login);
 
     const usuario: Usuario = {
@@ -32,19 +34,29 @@ export class LoginComponent implements OnInit {
 
     console.log(usuario);
     this.loading= true;
-    setTimeout(()=>{
+
+    this.loginService.login(usuario).subscribe(data=>{
+      console.log(data);
+      this.loading = false;
+      this.loginService.setLocalStorage(data);
+      this.router.navigate(['/dashboard']);
+    }, error => {
+      console.log(error);
+      this.loading = false;
+      this.toastr.error(error.error.message, 'Error');
+      this.login.reset();
+    });
+
+    /* setTimeout(()=>{
       if(usuario.nombreUsuario === "fserna" && usuario.password === '1234'){
-        this.router.navigate(['/dashboard']);
         this.login.reset();
+        this.router.navigate(['/dashboard']);
       }else{
         this.toastr.error('Usuario o contraseña incorrectos', 'Error');
         this.login.reset();
       }
       this.loading = false;
-    }, 3000);
-
-
- 
+    }, 1000); */
 
   }
 

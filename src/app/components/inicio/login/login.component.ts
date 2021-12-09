@@ -36,9 +36,9 @@ export class LoginComponent implements OnInit {
     this.loading= true;
 
     this.loginService.login(usuario).subscribe(data=>{
-      console.log(data);
+      // console.log(data);
       this.loading = false;
-      this.loginService.setLocalStorage(data);
+      this.loginService.setLocalStorage(data.token);
       this.router.navigate(['/dashboard']);
     }, error => {
       console.log(error);

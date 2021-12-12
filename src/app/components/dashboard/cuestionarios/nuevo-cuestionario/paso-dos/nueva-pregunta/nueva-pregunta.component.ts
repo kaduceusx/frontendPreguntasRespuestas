@@ -78,7 +78,7 @@ export class NuevaPreguntaComponent implements OnInit {
       const respuesta:Respuesta = new Respuesta(element.descripcion, false);
 
       if (indice === this.respuestaCorrecta){
-        respuesta.esCorrecta = true;
+        respuesta.EsCorrecta = true;
       }
 
       arrayRta.push(respuesta);

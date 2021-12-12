@@ -7,18 +7,18 @@
       <div class="card mb-2" *ngFor="let pregunta of listadoPreguntas; let i = index">
          <div class="card-header d-flex justify-content-between align-items-center">
             <div class="w-50 ml-1">
-               <h5>{{pregunta.descripcion}}</h5>
+               <h5>{{pregunta.Descripcion}}</h5>
             </div>
             <div class="w-50">
                <button class="btn btn-danger btn-sm  mt-1 ml-2 float-right" (click)="eliminarPregunta(i)">Borrar</button>
-               <button class="btn btn-primary btn-sm  mt-1 ml-2 float-right" (click)="pregunta.hide=!pregunta.hide">Mostrar</button> 
+               <button class="btn btn-primary btn-sm  mt-1 ml-2 float-right" (click)="pregunta.Hide=!pregunta.Hide">Mostrar</button> 
             </div>
          </div>
-         <div class="card-body" [hidden]="pregunta.hide">
+         <div class="card-body" [hidden]="pregunta.Hide">
             <ul class="list-group">
-               <li class="list-group-item" *ngFor="let respuesta of pregunta.listadoRespuesta" [ngClass]="{'list-group-item-success': respuesta.esCorrecta == true}">
-                  {{respuesta.descripcion}}
-                  <span class="material-icons float-right " *ngIf="respuesta.esCorrecta == true">
+               <li class="list-group-item" *ngFor="let respuesta of pregunta.ListadoRespuesta" [ngClass]="{'list-group-item-success': respuesta.EsCorrecta == true}">
+                  {{respuesta.Descripcion}}
+                  <span class="material-icons float-right " *ngIf="respuesta.EsCorrecta == true">
                      check_circle
                   </span>
                </li>

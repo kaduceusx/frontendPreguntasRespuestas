@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
     console.log(this.login);
 
     const usuario: Usuario = {
-      nombreUsuario: this.login.value.usuario,
-      password: this.login.value.password
+      NombreUsuario: this.login.value.usuario,
+      Password: this.login.value.password
     };
 
     console.log(usuario);

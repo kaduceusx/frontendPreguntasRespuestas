@@ -1,0 +1,12 @@
+
+.iconoBorrar{
+   font-size: 39px;
+   cursor: pointer;
+   color: #dd2d2d
+}
+
+.agregarIcon{
+   font-size: 39px;
+   cursor: pointer;
+   float: right;
+}

@@ -1,4 +1,5 @@
-import { Respuesta } from "./Respuesta";
+import { Respuesta } from './respuesta';
+
 
 export class Pregunta{
    descripcion: string;

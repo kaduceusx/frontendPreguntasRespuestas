@@ -4,7 +4,8 @@ import { Pregunta } from 'src/app/models/pregunta';
 import { ToastrService } from 'ngx-toastr';
 
 import { FormArray } from '@angular/forms';
-import { Respuesta } from 'src/app/models/Respuesta';
+import { Respuesta } from 'src/app/models/respuesta';
+
 
 
 @Component({
@@ -79,9 +80,6 @@ export class NuevaPreguntaComponent implements OnInit {
       if (indice === this.respuestaCorrecta){
         respuesta.esCorrecta = true;
       }
-      // if (indice === element.esCorrecta){
-      //   respuesta.esCorrecta = true;
-      // }
 
       arrayRta.push(respuesta);
     });

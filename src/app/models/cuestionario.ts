@@ -1,17 +1,20 @@
 import { Pregunta } from "./pregunta";
+import { Usuario } from './usuario';
 
 export class Cuestionario {
 
-   Id?: number;
-   Nombre: string;
-   Descripcion: string;
-   FechaCreacion?: Date;
-   ListadoPreguntas: Pregunta[];
+   id?: number;
+   nombre: string;
+   descripcion: string;
+   fechaCreacion?: Date;
+   listadoPreguntas: Pregunta[];
+   usuario?: Usuario
 
-   constructor(nombre:string, descripcion:string, fechaCreacion:Date, preguntas:Pregunta[]){
-      this.Nombre = nombre;
-      this.Descripcion = descripcion;
-      this.FechaCreacion = fechaCreacion;
-      this.ListadoPreguntas = preguntas;
+   constructor(nombre:string, descripcion:string, fechaCreacion:Date, usuario: Usuario, preguntas:Pregunta[]){
+      this.nombre = nombre;
+      this.descripcion = descripcion;
+      this.fechaCreacion = fechaCreacion;
+      this.usuario = usuario;
+      this.listadoPreguntas = preguntas;
    }
 }

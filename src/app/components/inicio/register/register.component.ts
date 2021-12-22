@@ -32,15 +32,15 @@ export class RegisterComponent implements OnInit {
   registrarUsuario():void {
     console.log(this.register);
     const usuario: Usuario = {
-      NombreUsuario: this.register.value.usuario,
-      Password: this.register.value.password
+      nombreUsuario: this.register.value.usuario,
+      password: this.register.value.password
     };
 
     this.loading = true;
 
     this.usuarioServices.saveUser(usuario).subscribe(data =>{
       console.log(data);
-      this.toastr.success(`El usuario ${usuario.NombreUsuario} ha sido registrado con exito`, 'Usuario Registrado');
+      this.toastr.success(`El usuario ${usuario.nombreUsuario} ha sido registrado con exito`, 'Usuario Registrado');
       this.router.navigate(['/inicio/login']);
       this.loading = false;
     }, error =>{

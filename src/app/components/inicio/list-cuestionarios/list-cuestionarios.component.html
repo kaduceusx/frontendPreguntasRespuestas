@@ -1,0 +1,27 @@
+<div class="container">
+   <div class="row w-100 m-4">
+      <div class="card text-center w-100">
+         <br>
+         <h3>Bienvenidos</h3>
+         <h4 *ngIf="listCuestionarios.length == 0">No hay cuestionarios para mostrar</h4>
+         <div class="card-columns p-3">
+            <div class="card bg-light" *ngFor="let cuestionario of listCuestionarios">
+               <div class="card-body text-center">
+                   <h4 class="card-title">{{cuestionario.nombre}}</h4>
+                   <p class="card-text">{{cuestionario.descripcion}}</p>
+                   <div style="font-size: 13px;">
+                      <strong>Creador por: {{cuestionario.usuario?.nombreUsuario}}</strong>
+                   </div>
+                   <div style="font-size: 13px;">
+                      <strong>Fecha Creacion: {{cuestionario.fechaCreacion | date: "dd/MM/yy"}}</strong>
+                   </div>
+                   <button class="btn btn-success mb-3 mt-2" (click)="ingresarNombre(cuestionario.id!)">INGRESAR</button>
+               </div>
+            </div>
+         </div>
+         <div class="mt-auto">
+            <button class="btn btn-secondary btn-lg mb-5" routerLink="/inicio/">VOLVER</button>
+         </div>
+      </div>
+   </div>
+</div>

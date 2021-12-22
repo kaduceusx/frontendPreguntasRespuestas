@@ -2,13 +2,13 @@ import { Respuesta } from './respuesta';
 
 
 export class Pregunta{
-   Descripcion: string;
-   ListadoRespuesta: Respuesta[];
-   Hide?: boolean;
+   descripcion: string;
+   listadoRespuesta: Respuesta[];
+   hide?: boolean;
 
    constructor(descripcion:string, respuestas:Respuesta[]){
-      this.Descripcion = descripcion;
-      this.ListadoRespuesta = respuestas;
-      this.Hide = true;
+      this.descripcion = descripcion;
+      this.listadoRespuesta = respuestas;
+      this.hide = true;
    }
 }

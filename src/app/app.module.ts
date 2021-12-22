@@ -7,6 +7,7 @@ import { AddTokenInterceptor } from '../app/helpers/add-token.interceptor';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,13 @@ import { NuevoCuestionarioComponent } from './components/dashboard/cuestionarios
 import { PasoUnoComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-uno/paso-uno.component';
 import { PasoDosComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-dos/paso-dos.component';
 import { NuevaPreguntaComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-dos/nueva-pregunta/nueva-pregunta.component';
+import { CuestionarioComponent } from './components/dashboard/cuestionarios/cuestionario/cuestionario.component';
+import { ListCuestionariosComponent } from './components/inicio/list-cuestionarios/list-cuestionarios.component';
+import { IngresarNombreComponent } from './components/inicio/list-cuestionarios/ingresar-nombre/ingresar-nombre.component';
+import { PreguntaComponent } from './components/inicio/list-cuestionarios/pregunta/pregunta.component';
+import { RespuestaCuestonarioComponent } from './components/inicio/list-cuestionarios/respuesta-cuestonario/respuesta-cuestonario.component';
+import { EstadisticasComponent } from './components/dashboard/cuestionarios/estadisticas/estadisticas.component';
+import { DetalleRespuestaComponent } from './components/dashboard/cuestionarios/estadisticas/detalle-respuesta/detalle-respuesta.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +48,14 @@ import { NuevaPreguntaComponent } from './components/dashboard/cuestionarios/nue
     NuevoCuestionarioComponent,
     PasoUnoComponent,
     PasoDosComponent,
-    NuevaPreguntaComponent
+    NuevaPreguntaComponent,
+    CuestionarioComponent,
+    ListCuestionariosComponent,
+    IngresarNombreComponent,
+    PreguntaComponent,
+    RespuestaCuestonarioComponent,
+    EstadisticasComponent,
+    DetalleRespuestaComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +63,8 @@ import { NuevaPreguntaComponent } from './components/dashboard/cuestionarios/nue
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true}

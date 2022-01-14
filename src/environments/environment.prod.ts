@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endPoint: 'https://backendpreguntasrespuestas.azurewebsites.net'
+  endPoint: 'http://fesergrybackws.ddns.net:9090'
 };
